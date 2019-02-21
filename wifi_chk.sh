@@ -29,6 +29,7 @@ if [ "$SIGNAL" = "unknown" ] || [ -z "$SIGNAL" ] && SIGNAL=0 && WAP="$DWAP" && T
       /bin/rm /tmp/syslogs.txt                                                                                                                                   
       echo -e "From: ALERT@$DWAP\r\nTo: $SMS\r\nSubject: $WAP DOWN\r\n\r\n$WAP\r\nSignal: $SIGNAL dBm\r\nBit Rate: $BITRATE MBit/s." | msmtp -d -a gsuite
       echo -e "From: ALERT@$DWAP\r\nTo: $MAIL\r\nSubject: $WAP DOWN\r\n\r\n$TXTBODY\r\n\r\n$SYSLOG100\r\nDone." | msmtp -d -a gsuite -t
+      /sbin/wifi
       exit 1
 
    elif [ "$MAILCT" = 1 ] && echo 2 > /tmp/wifi-alarms.txt; then
@@ -37,6 +38,7 @@ if [ "$SIGNAL" = "unknown" ] || [ -z "$SIGNAL" ] && SIGNAL=0 && WAP="$DWAP" && T
       /bin/rm /tmp/syslogs.txt                                                                                                                                   
       echo -e "From: ALERT@$DWAP\r\nTo: $SMS\r\nSubject: $WAP DOWN\r\n\r\n$WAP\r\nSignal: $SIGNAL dBm\r\nBit Rate: $BITRATE MBit/s." | msmtp -d -a gsuite
       echo -e "From: ALERT@$DWAP\r\nTo: $MAIL\r\nSubject: $WAP DOWN\r\n\r\n$TXTBODY\r\n\r\n$SYSLOG100\r\nDone." | msmtp -d -a gsuite -t
+      /sbin/wifi
       exit 2
 
    elif [ "$MAILCT" = 2 ] && echo 3 > /tmp/wifi-alarms.txt; then
@@ -45,6 +47,7 @@ if [ "$SIGNAL" = "unknown" ] || [ -z "$SIGNAL" ] && SIGNAL=0 && WAP="$DWAP" && T
       /bin/rm /tmp/syslogs.txt                                                                                                                                   
       echo -e "From: ALERT@$DWAP\r\nTo: $SMS\r\nSubject: $WAP DOWN\r\n\r\n$WAP\r\nSignal: $SIGNAL dBm\r\nBit Rate: $BITRATE MBit/s." | msmtp -d -a gsuite
       echo -e "From: ALERT@$DWAP\r\nTo: $MAIL\r\nSubject: $WAP DOWN\r\n\r\n$TXTBODY\r\n\r\n$SYSLOG100\r\nDone." | msmtp -d -a gsuite -t
+      /sbin/wifi
       exit 3
 
    elif [ "$MAILCT" = 3 ]; then 
